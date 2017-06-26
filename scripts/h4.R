@@ -20,3 +20,12 @@ ggplot(data=plot_df, aes(
   y=value,
   fill=Var1)) + geom_col(position="dodge")+
   ylim(0, 0.6)
+
+plot_df = prop.table(table(df$smoother_browser, df$content_treat), 1)
+plot_df = melt(plot_df)
+ggplot(data=plot_df, aes(
+  x=Var2,
+  y=value,
+  fill=Var1)) + geom_col(position="dodge")+
+  ylim(0, 0.6)
+

@@ -177,6 +177,7 @@ recode_chrome_speed = function(df){
   df$chrome_speed = tmp
   return(df)
 }
+
 recode_chrome_smooth = function(df){
   tmp = recode(df$chrome_smooth,
                'Extremely smooth' = 3,
@@ -187,7 +188,7 @@ recode_chrome_smooth = function(df){
                'Uneven' = 2,
                'Extremely uneven' = 3,
                .default=0)
-  df$chrome_smooth = tmpls
+  df$chrome_smooth = tmp
   return(df)
 }
 

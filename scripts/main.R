@@ -1,7 +1,10 @@
 # main script that runs all of the analyses and produces all required output for reporting purposes
+# https://github.com/mozilla/PPPStudy
+
 rm(list=ls(all=T))
 gc()
 library(tidyverse)
+library(assertthat)
 library(plyr)
 library(forcats)
 library(stringr)
@@ -13,15 +16,21 @@ library(sjPlot)
 library(sjmisc)
 library(lme4)
 library(broom)
+library(psych)
 
-#source('getdata.R')
-fn = '~/Mozilla/Projects/PPPStudy/data/data_2017-06-19.RData'
+#pkgs <- c("dplyr", "tidyr", "broom")
+#install.packages(pkgs) #install 
+#sapply(pkgs, require, character.only = T)
+
+#source('getdata.R') # run this once upon cloning of project
+fn = 'C:/Users/rjweiss/Documents/Mozilla/PPPStudy/data/data_2017-06-19.RData' # this is hardcoded
 df = read_rds(fn)
 
-setwd('~/Mozilla/Projects/PPPStudy/scripts/')
+setwd('C:/Users/rjweiss/Documents/Mozilla/PPPStudy/scripts/')
 source('renaming.R')
 source('recoding.R')
 source('preprocessing.R')
+source('run_tests.R')
 
 # run_tests.R # this script should make some assertions about the dataset to ensure that we know the truth
 # run_analyses.R

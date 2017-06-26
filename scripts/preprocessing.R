@@ -3,6 +3,8 @@ remove_non_US = function(df) {
   return(df[df$"Country" == 'United States',])
 } 
 
+# Need more filters?
+
 # Filtering
 df = df %>% 
   remove_non_US# %>%
@@ -34,7 +36,6 @@ content_treat = ddply(df, .(id), function(x){
     return(foo[1])
 })  
 names(content_treat) = c('id','content_treat')
-
 
 source_treat = ddply(df, .(id), function(x){
   foo = as.vector(str_split(x$Branches, '-', simplify=T))
