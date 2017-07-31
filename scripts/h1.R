@@ -13,7 +13,8 @@ sjt.glm(fit1_faster, fit2_faster, fit3_faster,
         string.dv = 'Endorsing Firefox as faster',
         group.pred=F,
         show.aic = T, show.chi2 = T, show.ci = F,
-        pred.labels=predlabs, depvar.labels=deplabs)
+        pred.labels=predlabs, depvar.labels=deplabs,
+        file='~/Mozilla/PPPStudy/results/table1.html')
 
 
 td <- tidy(fit4_faster, conf.int = TRUE)
