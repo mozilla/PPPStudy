@@ -25,6 +25,8 @@ geom_vline(xintercept=0)
 
 sjp.glm(fit4_faster)
 
+#sjt.glm(fit4_faster)
+
 # mtcars %>% group_by(am) %>% do(tidy(lm(mpg ~ wt, .)))
 ## Source: local data frame [4 x 6]
 ## Groups: am
