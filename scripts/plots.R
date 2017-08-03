@@ -40,6 +40,10 @@ ddply(df, .(primarybrowser), summarise,
 #Overall plot of proficiency scores
 qplot(df$proficiency, binwidth=.5)
 
+
+
+qplot(df$faster_browser, df$content_treat, geom="bar")
+
 # Very weak relationship between primary browser choice and tech proficiency, hardly even a relationship
 ggplot(data=df, aes(
   x=primarybrowser,
