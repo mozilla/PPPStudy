@@ -20,12 +20,19 @@ names(df)[31] = 'cars_article'
 #[32] "Which browser was discussed in the article?"
 names(df)[32] = 'browser_article'
 # [33] "Trustworthy:This article was:"                                                                                                                                            
+names(df)[33] = 'article_trustworthy'
 # [34] "Current:This article was:"                                                                                                                                                
-# [35] "Unbiased:This article was:"                                                                                                                                               
-# [36] "Honest:This article was:"                                                                                                                                                 
-# [37] "Up-to-date:This article was:"                                                                                                                                             
-# [38] "Balanced:This article was:"                                                                                                                                               
+names(df)[34] = 'article_current'
+# [35] "Unbiased:This article was:"  
+names(df)[35] = 'article_unbiased'
+# [36] "Honest:This article was:"    
+names(df)[36] = 'article_honest'
+# [37] "Up-to-date:This article was:"
+names(df)[37] = 'article_uptodate'
+# [38] "Balanced:This article was:"  
+names(df)[38] = 'article_balanced'
 # [39] "Accurate:This article was:"  
+names(df)[39] = 'article_accurate'
 
 # DEPENDENT VARIABLES
 

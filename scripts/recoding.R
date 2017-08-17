@@ -192,6 +192,104 @@ recode_chrome_smooth = function(df){
   return(df)
 }
 
+recode_trustworthy = function(df) {
+  tmp = recode(df$article_trustworthy,
+               'Strongly agree'=3,
+               'Strong disagree'=-3,
+               'Agree'=2,
+               'Disagree'=-2,
+               'Moderately agree'=1,
+               'Moderately disagree'=-1,
+               'Neither disagree or agree'=0,
+               .default=0)
+  df$article_trustworthy = tmp
+  return(df)
+}
+
+recode_current = function(df) {
+  tmp = recode(df$article_current,
+               'Strongly agree'=3,
+               'Strong disagree'=-3,
+               'Agree'=2,
+               'Disagree'=-2,
+               'Moderately agree'=1,
+               'Moderately disagree'=-1,
+               'Neither disagree or agree'=0,
+               .default=0)
+  df$article_current = tmp
+  return(df)
+}
+
+recode_unbiased = function(df) {
+  tmp = recode(df$article_unbiased,
+               'Strongly agree'=3,
+               'Strong disagree'=-3,
+               'Agree'=2,
+               'Disagree'=-2,
+               'Moderately agree'=1,
+               'Moderately disagree'=-1,
+               'Neither disagree or agree'=0,
+               .default=0)
+  df$article_unbiased = tmp
+  return(df)
+}
+
+recode_honest = function(df) {
+  tmp = recode(df$article_honest,
+               'Strongly agree'=3,
+               'Strong disagree'=-3,
+               'Agree'=2,
+               'Disagree'=-2,
+               'Moderately agree'=1,
+               'Moderately disagree'=-1,
+               'Neither disagree or agree'=0,
+               .default=0)
+  df$article_honest = tmp
+  return(df)
+}
+
+recode_uptodate = function(df) {
+  tmp = recode(df$article_uptodate,
+               'Strongly agree'=3,
+               'Strong disagree'=-3,
+               'Agree'=2,
+               'Disagree'=-2,
+               'Moderately agree'=1,
+               'Moderately disagree'=-1,
+               'Neither disagree or agree'=0,
+               .default=0)
+  df$article_uptodate = tmp
+  return(df)
+}
+
+recode_balanced = function(df) {
+  tmp = recode(df$article_balanced,
+               'Strongly agree'=3,
+               'Strong disagree'=-3,
+               'Agree'=2,
+               'Disagree'=-2,
+               'Moderately agree'=1,
+               'Moderately disagree'=-1,
+               'Neither disagree or agree'=0,
+               .default=0)
+  df$article_balanced = tmp
+  return(df)
+}
+
+recode_accurate = function(df) {
+  tmp = recode(df$article_accurate,
+               'Strongly agree'=3,
+               'Strong disagree'=-3,
+               'Agree'=2,
+               'Disagree'=-2,
+               'Moderately agree'=1,
+               'Moderately disagree'=-1,
+               'Neither disagree or agree'=0,
+               .default=0)
+  df$article_accurate = tmp
+  return(df)
+}
+
 # Main
 df = df %>% 
   recode_browser %>% 
@@ -210,6 +308,13 @@ df = df %>%
   recode_firefox_speed %>%
   recode_firefox_smooth %>%
   recode_chrome_speed %>%
-  recode_chrome_smooth
+  recode_chrome_smooth %>%
+  recode_trustworthy %>%
+  recode_current %>%
+  recode_unbiased %>%
+  recode_honest %>%
+  recode_uptodate %>%
+  recode_balanced %>%
+  recode_accurate
 
 rm(list=ls()[str_detect(ls(), 'recode')])
