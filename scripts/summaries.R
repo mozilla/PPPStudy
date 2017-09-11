@@ -28,7 +28,7 @@ ggplot(data = na.omit(plot_df), aes(
   labs(title = "Article credibility by source and content", x='', y='Normalized mean credibility rating with 95% CI') +
   scale_x_discrete(labels=c("USA Today", "The Verge")) +
   theme_few()
-  ggsave(filename='../results/cred_by_treats.png', plot=last_plot())
+  ggsave(filename='../results/fig3_cred_by_treats.png', plot=last_plot())
 
 labs = c('USAT'="USA Today", 'V'='The Verge')
 ggplot(data = na.omit(plot_df), aes(
@@ -40,9 +40,9 @@ ggplot(data = na.omit(plot_df), aes(
        x='Normalized proficiency score', 
        y='Normalized mean credibility rating') +
   theme_few()
-  ggsave(filename='../results/prof_cred_bysource.png', plot=last_plot())
+  ggsave(filename='../results/fig3_prof_cred_bysource.png', plot=last_plot())
 
-  source_corr = ddply(na.omit(plot_df), .(source_treat), summarise,
+source_corr = ddply(na.omit(plot_df), .(source_treat), summarise,
       corr=(cor.test(rating_normalized, prof_normalized)), name=names(corr))
 
 ggplot(data = na.omit(plot_df), aes(
@@ -54,7 +54,52 @@ ggplot(data = na.omit(plot_df), aes(
        x='Normalized proficiency score', 
        y='Normalized mean credibility rating') +
   theme_few()
-ggsave(filename='../results/prof_cred_bycontent.png', plot=last_plot())
+ggsave(filename='../results/fig3_prof_cred_bycontent.png', plot=last_plot())
 
 content_corr = ddply(na.omit(plot_df), .(content_treat), summarise,
       corr=(cor.test(rating_normalized, prof_normalized)), name=names(corr))
+
+corr_df = data.frame(rating = plot_df[plot_df$source_treat=='USAT',]$rating_normalized, proficiency=plot_df[plot_df$source_treat=='USAT',]$prof_normalized)
+sjt.corr(corr_df, p.numeric=T,
+         var.labels=c('Credibility rating', 'Self-reported profiency score'),
+         show.p=T,
+         corr.method='pearson',
+         title='Correlation matrix for USA Today source condition',
+         file='../results/table4a.html')
+
+corr_df = data.frame(rating = plot_df[plot_df$source_treat=='V',]$rating_normalized, proficiency=plot_df[plot_df$source_treat=='V',]$prof_normalized)
+sjt.corr(corr_df, p.numeric=T,
+         var.labels=c('Credibility rating', 'Self-reported profiency score'),
+         show.p=T,
+         corr.method='pearson',
+         title='Correlation matrix for The Verge source condition',
+         file='../results/table4b.html')
+
+corr_df = data.frame(rating = plot_df[plot_df$content_treat=='PPR',]$rating_normalized, proficiency=plot_df[plot_df$content_treat=='PPR',]$prof_normalized)
+sjt.corr(corr_df, p.numeric=T,
+         var.labels=c('Credibility rating', 'Self-reported profiency score'),
+         show.p=T,
+         corr.method='pearson',
+         title='Correlation matrix for improved performance content condition',
+         file='../results/table4c.html')
+
+
+corr_df = data.frame(rating = plot_df[plot_df$content_treat=='PUIR',]$rating_normalized, proficiency=plot_df[plot_df$content_treat=='PUIR',]$prof_normalized)
+sjt.corr(corr_df, p.numeric=T,
+         var.labels=c('Credibility rating', 'Self-reported profiency score'),
+         show.p=T,
+         corr.method='pearson',
+         title='Correlation matrix for improved UI content condition',
+         file='../results/table4d.html')
+
+
+corr_df = data.frame(rating = plot_df[plot_df$content_treat=='SDC',]$rating_normalized, proficiency=plot_df[plot_df$content_treat=='SDC',]$prof_normalized)
+sjt.corr(corr_df, p.numeric=T,
+         var.labels=c('Credibility rating', 'Self-reported profiency score'),
+         show.p=T,
+         corr.method='pearson',
+         title='Correlation matrix for control content condition',
+         file='../results/table4e.html')
+
+
+
