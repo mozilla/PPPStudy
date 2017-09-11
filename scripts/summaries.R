@@ -1,10 +1,3 @@
-# were the articles in USA today perceived as more credible than in the verge (it'd probably be useful to see this answer in terms of each of the 3 articles as well as overall)?
-# if either source was perceived as more credible, did that correspond to higher performance ratings?
-# did our "tech savvy" users assign greater credibility to USA Today than The Verge/is this different than the plebs?
-# The credibility metric is usually determined (per similar scales in the lit) via a summated mean and I'm sure there is something creative you can do to cutoff the tech savvy respondents from the plebs
-
-# proficiency scaling
-
 df$prof_normalized = (df$proficiency-min(df$proficiency, na.rm=T))/(max(df$proficiency, na.rm=T)-min(df$proficiency, na.rm=T))
 
 df$rating = df$article_accurate + 

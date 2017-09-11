@@ -34,7 +34,3 @@ source('run_tests.R')
 source('models.R')
 source('tables.R')
 source('figures.R')
-
-# run_tests.R # this script should make some assertions about the dataset to ensure that we know the truth
-# run_analyses.R
-# make_report.R

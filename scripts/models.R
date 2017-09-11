@@ -18,7 +18,6 @@ sjt.glm(fit1, fit2, fit3, fit4,
         depvar.labels=deplabs,
         file='~/Mozilla/PPPStudy/results/table3a.html')
 
-
 deplabs = c('Endorsed Firefox as Faster')
 predlabs = c('Performance content', 'UI content', 'Prefers Chrome', 'Prefers alternate browser', 
             'Performance * Prefers Chrome', 'UI * Prefers Chrome', 'Performance * alternate browser', 'UI * alternate browser')
