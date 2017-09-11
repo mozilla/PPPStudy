@@ -49,6 +49,7 @@ df = join(df, source_treat, by='id')
 #Making factor levels
 df$content_treat = fct_relevel(df$content_treat, "SDC")
 df$source_treat = fct_relevel(df$source_treat, "USAT")
+df$primarybrowser = fct_relevel(df$primarybrowser, "Firefox")
 
 rm('content_treat')
 rm('source_treat')
