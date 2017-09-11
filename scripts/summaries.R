@@ -28,7 +28,7 @@ ggplot(data = na.omit(plot_df), aes(
   labs(title = "Article credibility by source and content", x='', y='Normalized mean credibility rating with 95% CI') +
   scale_x_discrete(labels=c("USA Today", "The Verge")) +
   theme_few()
-  ggsave(filename='../results/fig3_cred_by_treats.png', plot=last_plot())
+  ggsave(filename='../results/fig3a.png', plot=last_plot())
 
 labs = c('USAT'="USA Today", 'V'='The Verge')
 ggplot(data = na.omit(plot_df), aes(
@@ -40,7 +40,7 @@ ggplot(data = na.omit(plot_df), aes(
        x='Normalized proficiency score', 
        y='Normalized mean credibility rating') +
   theme_few()
-  ggsave(filename='../results/fig3_prof_cred_bysource.png', plot=last_plot())
+  ggsave(filename='../results/fig3b.png', plot=last_plot())
 
 source_corr = ddply(na.omit(plot_df), .(source_treat), summarise,
       corr=(cor.test(rating_normalized, prof_normalized)), name=names(corr))
@@ -54,7 +54,7 @@ ggplot(data = na.omit(plot_df), aes(
        x='Normalized proficiency score', 
        y='Normalized mean credibility rating') +
   theme_few()
-ggsave(filename='../results/fig3_prof_cred_bycontent.png', plot=last_plot())
+ggsave(filename='../results/fig3c.png', plot=last_plot())
 
 content_corr = ddply(na.omit(plot_df), .(content_treat), summarise,
       corr=(cor.test(rating_normalized, prof_normalized)), name=names(corr))
